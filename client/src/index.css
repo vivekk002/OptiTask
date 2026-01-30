@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #fbfdfb;
+    --text: #082107;
+    --border: #d9e7fa;
+  }
+
+  .dark {
+    --bg: #0f170e;
+    --text: #e8f5e9;
+    --border: #1e3b23;
+  }
+
+  html {
+    @apply transition-colors duration-300;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  body {
+    @apply font-sans antialiased min-h-screen m-0;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply bg-primary-light dark:bg-primary-dark text-[#082107] dark:text-[#0f170e] font-bold shadow-premium hover:shadow-ultra hover:-translate-y-1;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-100 dark:bg-emerald-900/20 text-slate-800 dark:text-emerald-100 border border-slate-200 dark:border-emerald-500/20 hover:bg-slate-200 dark:hover:bg-emerald-500/10;
+  }
+
+  .glass-card {
+    @apply bg-white/80 dark:bg-[#162415]/60 backdrop-blur-xl border border-white/40 dark:border-white/5 rounded-3xl shadow-premium;
+  }
+
+  .input-field {
+    @apply w-full px-5 py-3 rounded-3xl bg-white/50 dark:bg-emerald-900/5 border border-slate-200 dark:border-emerald-500/10 focus:ring-4 focus:ring-primary-light/20 dark:focus:ring-primary-dark/10 focus:outline-none transition-all duration-300;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 dark:bg-slate-800 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-300 dark:bg-slate-700;
+}
+
+@layer utilities {
+  .shadow-premium {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.35);
+  }
+  .shadow-ultra {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+  }
+  .shadow-glass {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  }
+}
